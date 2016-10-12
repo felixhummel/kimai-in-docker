@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  nginx:
+    image: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      # override the default site
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./html:/etc/nginx/html:ro
+    links:
+      - fpm
+
+  fpm:
+    build: .
+    image: felix/php:fpm-mysqli
+    volumes:
+      - ./html:/var/www/html
+    links:
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=true
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
+
