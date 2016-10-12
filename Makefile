@@ -5,4 +5,4 @@ html:
 	unzip -q kimai_1.1.0.zip -d html/ 
 	sudo chown -R www-data: html
 clean:
-	rm -r html
+	sudo rm -r html
