@@ -1,3 +1,9 @@
+# Install
+
+Pull things:
+
+    docker-compose pull
+
 This fetches Kimai, unzips to `html` and chowns to `www-data`:
 
     make html
@@ -20,6 +26,7 @@ Open [http://localhost:8080/](http://localhost:8080/). Default DB credentials:
 Remove the installer:
 
     make remove_installer
+
 
 # Update
 
