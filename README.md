@@ -56,7 +56,7 @@ Remove the installer:
     sudo chown -R www-data: html/
     docker-compose up -d && docker-compose logs -f
 
-Open http://localhost:8080/
+Open [http://localhost:8080/](http://localhost:8080/)
 
     make remove_installer
 
