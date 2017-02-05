@@ -21,7 +21,12 @@ Remove the installer:
 
     make remove_installer
 
-# Update old
+# Update
+
+## Do things that take a while
+
+    docker-compose pull
+    wget https://github.com/kimai/kimai/releases/download/1.1.0/kimai_1.1.0.zip
 
 ## Backups
 
@@ -42,8 +47,7 @@ Remove the installer:
 
     tar xf /var/backups/kimai/files.tar.gz
     mv kimai/ html/
-    wget https://github.com/kimai/kimai/releases/download/1.1.0/kimai_1.1.0.zip
-    unzip kimai_1.1.0.zip -d kimai_1.1.0
+    unzip -q kimai_1.1.0.zip -d kimai_1.1.0
     cp -r kimai_1.1.0/* html/
     rm -r kimai_1.1.0/
 
