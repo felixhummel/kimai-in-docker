@@ -13,7 +13,6 @@ services:
       - fpm
 
   fpm:
-    build: .
     image: felix/php:fpm-mysqli
     volumes:
       - ./html:/var/www/html
