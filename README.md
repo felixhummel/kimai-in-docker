@@ -71,3 +71,8 @@ Open [http://localhost:8080/](http://localhost:8080/)
 
     make remove_installer
 
+# Backup
+```
+docker-compose exec mysql mysqldump -ukimai -pkimai kimai > /var/backups/kimai/db.$(date +%F_%H-%M).sql
+```
+
