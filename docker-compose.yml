@@ -11,7 +11,7 @@ services:
       - ./html:/etc/nginx/html:ro
     links:
       - fpm
-    restart: on-failure:8
+    restart: always
 
   fpm:
     image: felix/php:fpm-mysqli
@@ -19,7 +19,7 @@ services:
       - ./html:/var/www/html
     links:
       - mysql
-    restart: on-failure:8
+    restart: always
 
   mysql:
     image: mysql:5.7
@@ -28,5 +28,5 @@ services:
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
       - ./mysql-data:/var/lib/mysql
-    restart: on-failure:8
+    restart: always
 
