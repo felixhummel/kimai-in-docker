@@ -4,4 +4,7 @@ set -euo pipefail
 here="$(readlink -m $(dirname $0))"
 
 cd $here/..
-docker-compose exec mysql mysqldump -ukimai -pkimai kimai
+
+service=mysql
+container=$(docker-compose ps -q $service)
+docker exec $container mysqldump -ukimai -pkimai kimai
