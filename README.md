@@ -46,7 +46,7 @@ Remove the installer:
     docker-compose up -d mysql && docker-compose logs -f mysql
     # give it a minute to start up, then load the dump
     # (using docker exec for stdio)
-    cat /var/backups/kimai/db.sql | docker exec -i $(docker-compose ps -q mysql) mysql -ukimai -pkimai kimai
+    cat /var/backups/kimai/db.sql | docker-compose exec -T mysql mysql -ukimai -pkimai kimai
     docker-compose exec mysql mysql -ukimai -pkimai kimai
     # show tables;
 
