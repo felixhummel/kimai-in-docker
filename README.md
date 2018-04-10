@@ -60,6 +60,7 @@ Remove the installer:
 
 ## Check Config
 
+    # especially $password_salt
     vi html/includes/autoconf.php
 
 ## Run and Migrate
