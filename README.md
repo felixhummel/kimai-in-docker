@@ -4,14 +4,12 @@ Pull things:
 
     docker-compose pull
 
-This fetches Kimai, unzips to `html` and chowns to `www-data`:
-
-    make html
-
-Edit db credentials (or leave as is):
-
-    vi docker-entrypoint-initdb.d/001_create.sql
-
+Set `KIMAI_PASSWORD_SALT`:
+```
+cat <<EOF > .env
+KIMAI_PASSWORD_SALT=changeme
+EOF
+```
 Start the containers:
 
     docker-compose up

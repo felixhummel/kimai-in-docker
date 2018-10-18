@@ -12,7 +12,17 @@ services:
     restart: always
 
   fpm:
-    build: .
+    build: fpm/
+    environment:
+      - KIMAI_PASSWORD_SALT
+      - MYSQL_HOSTNAME=mysql
+      - MYSQL_DATABASE=kimai
+      - MYSQL_USERNAME=kimai
+      - MYSQL_PASSWORD=kimai
+      - MYSQL_PREFIX=kimai_
+      - KIMAI_LANGUAGE=de
+      - PHP_TIMEZONE=Europe/Berlin
+      - KIMAI_SKIN=standard
     volumes:
       - html:/var/www/html
     links:
