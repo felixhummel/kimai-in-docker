@@ -13,4 +13,6 @@ RUN chown -R www-data: /var/www/html
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
+USER www-data
+
 CMD ["php-fpm"]
