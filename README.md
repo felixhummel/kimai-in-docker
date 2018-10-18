@@ -2,7 +2,7 @@
 
 Pull things:
 ```
-docker-compose pull
+docker-compose build
 ```
 
 Set `KIMAI_PASSWORD_SALT`:
@@ -23,6 +23,8 @@ Open [http://localhost:8080/](http://localhost:8080/). Default DB credentials:
 - User: `kimai`
 - Pass: `kimai`
 - DB: `kimai`
+
+Default user/pw: `admin` / `changeme`
 
 Remove the installer:
 ```
