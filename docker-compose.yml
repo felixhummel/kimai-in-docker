@@ -6,7 +6,7 @@ services:
     ports:
       - "127.0.0.1:8080:80"
     volumes:
-      - html:/etc/nginx/html:ro
+      - kimai:/var/www/kimai:ro
     links:
       - fpm
     restart: always
@@ -24,23 +24,23 @@ services:
       - PHP_TIMEZONE=Europe/Berlin
       - KIMAI_SKIN=standard
     volumes:
-      - html:/var/www/html
-    links:
-      - mysql
+      - kimai:/var/www/kimai
+    # links:
+    #   - mysql
     restart: always
 
-  mysql:
-    build: mysql/
-    environment:
-      - MYSQL_RANDOM_ROOT_PASSWORD=true
-    volumes:
-      - mysql_data:/var/lib/mysql
-    restart: always
+  # mysql:
+  #   build: mysql/
+  #   environment:
+  #     - MYSQL_RANDOM_ROOT_PASSWORD=true
+  #   volumes:
+  #     - mysql_data:/var/lib/mysql
+  #   restart: always
 
 volumes:
-  html:
+  kimai:
     labels:
       - de.felixhummel.project=kimai
-  mysql_data:
-    labels:
-      - de.felixhummel.project=kimai
+  # mysql_data:
+  #   labels:
+  #     - de.felixhummel.project=kimai
