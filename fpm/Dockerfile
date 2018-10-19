@@ -5,9 +5,10 @@ RUN cd /tmp \
 
 FROM php:fpm
 
-RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install -j$(nproc) mysqli
 
 COPY --from=builder --chown=www-data:www-data /tmp/html /var/www/html
+RUN chown www-data: /var/www/html
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
