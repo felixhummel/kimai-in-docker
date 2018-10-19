@@ -5,6 +5,6 @@ html: kimai_1.3.1.zip
 	unzip -q kimai_1.3.1.zip -d html/
 	sudo chown -R www-data: html
 remove_installer:
-	run --rm fpm rm -r installer/
+	docker-compose run --rm fpm rm -r installer/
 clean:
 	@echo TODO implement me

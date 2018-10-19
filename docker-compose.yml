@@ -1,4 +1,4 @@
-version: '2'
+version: '3.1'
 
 services:
   nginx:
@@ -39,4 +39,8 @@ services:
 
 volumes:
   html:
+    labels:
+      - de.felixhummel.project=kimai
   mysql_data:
+    labels:
+      - de.felixhummel.project=kimai
