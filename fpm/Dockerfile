@@ -8,8 +8,8 @@ RUN apt-get -y update \
     && apt-get install -y libicu-dev libpng-dev zlib1g-dev \
     && docker-php-ext-configure intl \
     && docker-php-ext-install -j$(nproc) gd intl mysqli zip \
+    && apt-get remove -y libicu-dev libpng-dev zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
-# TODO apt-get remove *-dev
 
 RUN cd /tmp \
     && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
@@ -27,8 +27,6 @@ RUN cd /var/www/kimai \
     && yes | bin/console doctrine:migrations:version --add --all \
     && bin/console kimai:create-user admin admin@example.com ROLE_SUPER_ADMIN changeme
 
-# COPY entrypoint.sh /entrypoint.sh
-# ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["php-fpm"]
 

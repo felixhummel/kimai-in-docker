@@ -13,34 +13,11 @@ services:
 
   fpm:
     build: fpm/
-    environment:
-      - KIMAI_PASSWORD_SALT
-      - MYSQL_HOSTNAME=mysql
-      - MYSQL_DATABASE=kimai
-      - MYSQL_USERNAME=kimai
-      - MYSQL_PASSWORD=kimai
-      - MYSQL_PREFIX=kimai_
-      - KIMAI_LANGUAGE=de
-      - PHP_TIMEZONE=Europe/Berlin
-      - KIMAI_SKIN=standard
     volumes:
       - kimai:/var/www/kimai
-    # links:
-    #   - mysql
     restart: always
-
-  # mysql:
-  #   build: mysql/
-  #   environment:
-  #     - MYSQL_RANDOM_ROOT_PASSWORD=true
-  #   volumes:
-  #     - mysql_data:/var/lib/mysql
-  #   restart: always
 
 volumes:
   kimai:
     labels:
       - de.felixhummel.project=kimai
-  # mysql_data:
-  #   labels:
-  #     - de.felixhummel.project=kimai
