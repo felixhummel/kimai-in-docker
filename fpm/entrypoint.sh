@@ -1,6 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
+echo 'initializing' >&2
 # poor man's templating for autoconf
 autoconf_path=/var/www/html/includes/autoconf.php
 
@@ -23,6 +24,8 @@ $billable        = array (
 );
 EOF
 
+chown www-data: $autoconf_path
+
 sed \
   --in-place \
   -e "s|MYSQL_HOSTNAME|$MYSQL_HOSTNAME|" \
@@ -36,4 +39,6 @@ sed \
   -e "s|KIMAI_SKIN|$KIMAI_SKIN|" \
   $autoconf_path
 
-exec docker-php-entrypoint $@
+echo 'starting' >&2
+exec docker-php-entrypoint "$@"
+

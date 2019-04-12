@@ -1,15 +1,13 @@
-version: '3.1'
+version: '3.7'
 
 services:
   nginx:
     build: nginx/
-    ports:
-      - "127.0.0.1:8080:80"
     volumes:
       - html:/etc/nginx/html:ro
-    links:
-      - fpm
     restart: always
+    labels:
+      - de.felixhummel.project=kimai
 
   fpm:
     build: fpm/
@@ -25,9 +23,9 @@ services:
       - KIMAI_SKIN=standard
     volumes:
       - html:/var/www/html
-    links:
-      - mysql
     restart: always
+    labels:
+      - de.felixhummel.project=kimai
 
   mysql:
     build: mysql/
@@ -36,6 +34,8 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     restart: always
+    labels:
+      - de.felixhummel.project=kimai
 
 volumes:
   html:
