@@ -32,8 +32,8 @@ docker-compose run --rm --entrypoint= fpm rm -rf installer
 # Update
 Check your backups:
 ```
-ls /var/backups/kimai/autoconf.php
-ls /var/backups/kimai/db.sql
+ls -l /var/backups/kimai/autoconf.php
+ls -l /var/backups/kimai/db.sql
 ```
 
 ## Configure
