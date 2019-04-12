@@ -40,5 +40,5 @@ sed \
   $autoconf_path
 
 echo 'starting' >&2
-exec php-fpm "$@"
+exec docker-php-entrypoint "$@"
 
