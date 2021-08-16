@@ -3,7 +3,7 @@ RUN cd /tmp \
     && wget -q https://github.com/kimai/kimai/releases/download/1.3.1/kimai_1.3.1.zip \
     && unzip -q kimai_1.3.1.zip -d html/
 
-FROM php:fpm
+FROM php:7.3.4-fpm
 
 RUN docker-php-ext-install -j$(nproc) mysqli
 
